@@ -1,0 +1,18 @@
+pip install pymongo
+
+from pymongo import MongoClient
+from pprint import pprint
+
+client = MongoClient('xxx.xx.x.xx', 27017)
+db = client['hh']
+parser = hh('https://hh.ru','Data',100)
+collection = db["data"]
+
+with open('parser.json') as f:
+  file_data = json.load(f)
+
+collection.insert_many(file_data)
+
+def salary(n):
+  for docs in collection.find({'salary_max': {'$gt': n}}):
+    pprint(docs)

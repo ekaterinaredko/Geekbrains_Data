@@ -1,0 +1,72 @@
+root@katy:~# systemctl status mongod
+● mongod.service - MongoDB Database Server
+   Loaded: loaded (/lib/systemd/system/mongod.service; disabled; vendor preset:
+   Active: inactive (dead)
+     Docs: https://docs.mongodb.org/manual
+lines 1-4/4 (END)
+root@katy:~# systemctl start mongod
+root@katy:~# mongo "mongodb://xxx.xx.x.xx:27017"
+MongoDB shell version v4.4.8
+connecting to: mongodb://xxx.xx.x.xx:27017/?compressors=disabled&gssapiServiceN                                                                                        ame=mongodb
+Implicit session: session { "id" : UUID("1e96defe-1495-45e2-bdee-53e5b1fg82fe")                                                                                         }
+MongoDB server version: 4.4.8
+---
+The server generated these startup warnings when booting:
+        2021-10-14T09:01:40.640+00:00: Using the XFS filesystem is strongly reco                                                                                        mmended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/p                                                                                        rodnotes-filesystem
+        2021-10-14T09:01:42.421+00:00: Access control is not enabled for the dat                                                                                        abase. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then re                                                                                        ceive and display
+        metrics about your deployment (disk utilization, CPU, operation statisti                                                                                        cs, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique                                                                                         URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to m                                                                                        ake product
+        improvements and to suggest MongoDB products and deployment options to y                                                                                        ou.
+
+        To enable free monitoring, run the following command: db.enableFreeMonit                                                                                        oring()
+        To permanently disable this reminder, run the following command: db.disa                                                                                        bleFreeMonitoring()
+---
+>
+> use hh
+switched to db hh
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db.hh.insertOne({name:"test doc", size: 1000, author: "Ekaterina Redko"})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("6167f75e8d789a4cc71329ea")
+}
+> show dbs
+admin   0.000GB
+config  0.000GB
+hh      0.000GB
+local   0.000GB
+> show collections
+data
+hh
+> db.data.find()
+{ "_id" : ObjectId("6167fca52150adddd371ca3e"), "name" : "Data Analyst", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48804309?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca3f"), "name" : "Senior Data Analyst","salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48837734?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca40"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48755763?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca41"), "name" : "Data engineer (аналитик данных)", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48272904?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca42"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48760864?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca43"), "name" : "Data Scientist (команда Поиска)", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/46048820?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca44"), "name" : "Data Entry Specialist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48819006?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca45"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/47377173?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca46"), "name" : "Middle Data Analyst (Sendios)", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/47944364?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca47"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/47944490?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca48"), "name" : "Data scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48720041?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca49"), "name" : "Data analyst / Аналитик Данных", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48257130?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4a"), "name" : "Data analyst / Аналитик Данных", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48257128?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4b"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48434078?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4c"), "name" : "Data Analyst", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48775586?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4d"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48378779?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4e"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/44350010?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca4f"), "name" : "Data Scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/45191074?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca50"), "name" : "Data Analyst", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48775587?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+{ "_id" : ObjectId("6167fca52150adddd371ca51"), "name" : "Аналитик \\ Junior data scientist", "salary_min" : 0, "salary_max" : 0, "link" : "https://hh.ru/vacancy/48797200?from=vacancy_search_list&query=Data", "site" : "https://hh.ru" }
+Type "it" for more
+> exit
+bye
